@@ -19,6 +19,14 @@
         pkgs = import nixpkgs {
           inherit system overlays;
           config.allowBroken = true;
+
+          # nodejs-18 doesn't link to the correct glibc on aarch64-linux
+          # this is just a temporary convenience local testing on an aarch64 machine
+          # in compatible environments (such as in deployment) use a higher nodejs version
+          config.permittedInsecurePackages = [
+            "nodejs-14.21.3"
+            "openssl-1.1.1u"
+          ];          
         };
 
         ps-tools = inputs.ps-tools.legacyPackages.${system};
@@ -29,12 +37,19 @@
 
         package = import ./package.nix { inherit pkgs get-flake system npmlock2nix; } purs-nix;
 
-        ps =
+
+        # use nodejs-14 for the purs-nix devShell command (see above note)
+        ps_14 =
           purs-nix.purs { inherit (package) dependencies;
                           dir = ./.;
                           nodejs = pkgs.nodejs-14_x; 
                         };
 
+        # use a higher version for everything else
+        ps =
+          purs-nix.purs { inherit (package) dependencies;
+                          dir = ./.;
+                        };
       in 
          { packages.default =
              purs-nix.build
@@ -47,12 +62,12 @@
              pkgs.mkShell
                { packages = with pkgs; [
                    nodejs
-                   (ps.command { }) 
+                   (ps_14.command { }) 
                    ps-tools.for-0_15.purescript-language-server
                    purs-nix.esbuild
                    purs-nix.purescript
                  ];
-               };
+              };
          }
 
    );
