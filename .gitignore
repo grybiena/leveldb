@@ -1,0 +1,5 @@
+output
+result
+test/test.db
+node_modules
+.direnv
