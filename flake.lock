@@ -331,6 +331,34 @@
         "type": "github"
       }
     },
+    "purescript-environment": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "get-flake": "get-flake",
+        "nixpkgs": "nixpkgs",
+        "npmlock2nix": "npmlock2nix",
+        "ps-tools": [
+          "purescript-environment",
+          "purs-nix",
+          "ps-tools"
+        ],
+        "purs-nix": "purs-nix"
+      },
+      "locked": {
+        "lastModified": 1685791012,
+        "narHash": "sha256-tCt8f7xPSsmk1yzVc4t7lRqONZKwqjXN6fBqCohIgqg=",
+        "ref": "grybiena",
+        "rev": "2a8bd5c93e71997d28bc49ba9149ce2574ebc15b",
+        "revCount": 1,
+        "type": "git",
+        "url": "ssh://git@github.com/grybiena/purescript-environment"
+      },
+      "original": {
+        "ref": "grybiena",
+        "type": "git",
+        "url": "ssh://git@github.com/grybiena/purescript-environment"
+      }
+    },
     "purs-nix": {
       "inputs": {
         "docs-search": "docs-search",
@@ -358,15 +386,31 @@
     },
     "root": {
       "inputs": {
-        "flake-utils": "flake-utils",
-        "get-flake": "get-flake",
-        "nixpkgs": "nixpkgs",
-        "npmlock2nix": "npmlock2nix",
+        "flake-utils": [
+          "purescript-environment",
+          "flake-utils"
+        ],
+        "get-flake": [
+          "purescript-environment",
+          "get-flake"
+        ],
+        "nixpkgs": [
+          "purescript-environment",
+          "nixpkgs"
+        ],
+        "npmlock2nix": [
+          "purescript-environment",
+          "npmlock2nix"
+        ],
         "ps-tools": [
-          "purs-nix",
+          "purescript-environment",
           "ps-tools"
         ],
-        "purs-nix": "purs-nix"
+        "purescript-environment": "purescript-environment",
+        "purs-nix": [
+          "purescript-environment",
+          "purs-nix"
+        ]
       }
     },
     "rust-analyzer-src": {

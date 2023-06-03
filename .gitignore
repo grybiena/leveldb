@@ -3,3 +3,4 @@ result
 test/test.db
 node_modules
 .direnv
+.psc-ide-port

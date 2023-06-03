@@ -1,15 +1,13 @@
 {
   description = "leveldb-json";
   inputs = {
-    get-flake.url = "github:ursi/get-flake";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    ps-tools.follows = "purs-nix/ps-tools";
-    purs-nix.url = "github:grybiena/purs-nix?ref=grybiena";
-    flake-utils.url = "github:numtide/flake-utils";
-    npmlock2nix =
-      { flake = false;
-        url = "github:grybiena/npmlock2nix?ref=grybiena";
-      };
+    purescript-environment.url = "git+ssh://git@github.com/grybiena/purescript-environment?ref=grybiena";
+    flake-utils.follows = "purescript-environment/flake-utils";
+    get-flake.follows   = "purescript-environment/get-flake";
+    nixpkgs.follows     = "purescript-environment/nixpkgs";
+    npmlock2nix.follows = "purescript-environment/npmlock2nix";
+    ps-tools.follows    = "purescript-environment/ps-tools";
+    purs-nix.follows    = "purescript-environment/purs-nix";
   };
   outputs = inputs@{ self, nixpkgs, flake-utils, get-flake, ... }:
     flake-utils.lib.eachDefaultSystem (system:
