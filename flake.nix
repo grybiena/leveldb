@@ -5,6 +5,10 @@
     flake-utils.url = "github:numtide/flake-utils";
     ps-tools.follows = "purs-nix/ps-tools";
     purs-nix.url = "github:grybiena/purs-nix?ref=grybiena";
+    npmlock2nix =
+      { flake = false;
+        url = "github:grybiena/npmlock2nix?ref=grybiena";
+      };
   };
   outputs = inputs@{ self, nixpkgs, flake-utils, ... }:
     flake-utils.lib.eachDefaultSystem (system:

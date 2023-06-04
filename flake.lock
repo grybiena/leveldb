@@ -262,6 +262,23 @@
         "type": "github"
       }
     },
+    "npmlock2nix": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1685718026,
+        "narHash": "sha256-g5BOTUbm4wsaTQJqUE0HsLP6tv5KFm2zWjBxqXlfz/0=",
+        "owner": "grybiena",
+        "repo": "npmlock2nix",
+        "rev": "a9f869c1d5e85e0e62de32caa9d5eb86e6028418",
+        "type": "github"
+      },
+      "original": {
+        "owner": "grybiena",
+        "ref": "grybiena",
+        "repo": "npmlock2nix",
+        "type": "github"
+      }
+    },
     "parsec": {
       "locked": {
         "lastModified": 1635533376,
@@ -328,6 +345,7 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
+        "npmlock2nix": "npmlock2nix",
         "ps-tools": [
           "purs-nix",
           "ps-tools"
