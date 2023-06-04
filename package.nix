@@ -1,4 +1,4 @@
-{ pkgs, get-flake, system, npmlock2nix }:
+{ pkgs, system, npmlock2nix }:
 { ps-pkgs, ... }:
   with ps-pkgs;
   { version = "1.0.0";
