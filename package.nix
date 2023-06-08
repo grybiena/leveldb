@@ -1,5 +1,4 @@
-{ pkgs, system, npmlock2nix }:
-{ ps-pkgs, ... }:
+{ ps-pkgs, npmlock2nix, ... }:
   with ps-pkgs;
   { version = "1.0.0";
     dependencies =
