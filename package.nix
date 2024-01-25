@@ -10,7 +10,7 @@
         resourcet
       ];
     src = "src";
-    foreign."Level.DB".node_modules =
+    foreign."Level.DB.Operations".node_modules =
       npmlock2nix.v2.node_modules { src = ./.;
                                     buildInputs = [];
                                   } + /node_modules;
