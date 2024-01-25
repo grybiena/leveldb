@@ -1,5 +1,5 @@
 rec {
-  description = "purescript-leveldb";
+  description = "leveldb";
   inputs = {
     env.url = "github:grybiena/purescript-environment";
   };
