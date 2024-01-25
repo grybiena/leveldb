@@ -2,5 +2,6 @@ output
 result
 test/test.db
 node_modules
+generated-docs
 .direnv
 .psc-ide-port

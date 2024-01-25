@@ -1,9 +1,8 @@
 rec {
-  description = "leveldb-json";
+  description = "purescript-leveldb";
   inputs = {
-    env.url = "git+ssh://git@github.com/grybiena/purescript-environment?ref=grybiena";  
+    env.url = "github:grybiena/purescript-environment";
   };
-
   outputs = inputs@{ env, ... }:
     env.flake-utils.lib.eachDefaultSystem (system:
       env.build-package { inherit system;
